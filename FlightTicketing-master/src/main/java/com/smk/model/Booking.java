@@ -1,5 +1,7 @@
 package com.smk.model;
 
+import com.smk.view.CreateBooking;
+
 public class Booking extends Model{
     private long id;
     private long scheduleId;
@@ -39,4 +41,7 @@ public class Booking extends Model{
     public void setPrice(double price) {
         this.price = price;
     }
+
+
+
 }

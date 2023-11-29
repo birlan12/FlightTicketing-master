@@ -1,16 +1,19 @@
 package com.smk.view;
 
 import com.smk.MainView;
+import com.smk.dao.BookingDao;
 import com.smk.dao.LocationDao;
 import com.smk.dao.ScheduleDao;
 import com.smk.model.Location;
 import com.smk.model.Schedule;
 import com.smk.model.dtd.ScheduleDTO;
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
@@ -29,6 +32,7 @@ public class CreateBooking extends VerticalLayout {
     public CreateBooking() {
         locationDao = new LocationDao();
         scheduleDao = new ScheduleDao();
+        BookingDao BookingDao = new BookingDao();
         createForm();
     }
 
@@ -64,7 +68,20 @@ public class CreateBooking extends VerticalLayout {
             );
             grid.setItems(scheduleDTOCollection);
         });
-    }
+        final BookingDao BookingDao;
 
+    }
+    private static class CreateBookingFormLayout extends FormLayout{
+        private final TextField idTextField = new TextField();
+        private final TextField fromTextField = new TextField("Dari");
+        private final TextField toTextField = new TextField("Ke");
+        private final DatePicker departureDatePicker = new DatePicker("Tanggal Keberangkatan");
+        private final TextField nameTextField = new TextField("Nama");
+        private final TextField priceTextField = new TextField("Harga");
+        private final Button saveBooking = new Button("Save");
+
+
+
+    }
 
 }
